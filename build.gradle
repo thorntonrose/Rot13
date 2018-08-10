@@ -13,10 +13,6 @@ repositories {
 
 dependencies {
 	testCompile "junit:junit:4.12"
-
-	// runtime "org.apache.logging.log4j:log4j-core:2.8.1"
-	// runtime "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.8.6"
-	// runtime "com.fasterxml.jackson.core:jackson-databind:2.8.6"
 }
 
 test {
