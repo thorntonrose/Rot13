@@ -16,18 +16,18 @@ dependencies {
 }
 
 test {
-    dependsOn cleanTest
-    ignoreFailures = true
-    testLogging.maxGranularity = 0
+	dependsOn cleanTest
+	ignoreFailures = true
+	testLogging.maxGranularity = 0
 
-    onOutput { dest, event -> print event.message }
+	onOutput { dest, event -> print event.message }
 
-    def results = []
-    afterTest { desc, result -> println "${desc.className.split("\\.")[-1]}: ${desc.name}: ${result.resultType}" }
-    afterSuite { desc, result -> if (desc.className) { results << result } }
+	def results = []
+	afterTest { desc, result -> println "${desc.className.split("\\.")[-1]}: ${desc.name}: ${result.resultType}" }
+	afterSuite { desc, result -> if (desc.className) { results << result } }
 
-    doLast {
+	doLast {
 		println "Tests: ${results.sum { it.testCount }}, Failures: ${results.sum { it.failedTestCount }}" +
-      	", Errors: ${results.sum { it.exceptions.size() }}, Skipped: ${results.sum { it.skippedTestCount }}"
+			", Errors: ${results.sum { it.exceptions.size() }}, Skipped: ${results.sum { it.skippedTestCount }}"
 	}
 }
